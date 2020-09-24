@@ -1,0 +1,28 @@
+body {
+  font-size: $fontSize;
+  background-color: $backgroundColor;
+}
+
+.action-buttons {
+  margin: $smallMargin;
+}
+
+.messages {
+  padding: 1rem 0 0 1rem;
+
+  .alert-heading {
+    font-size: 1rem;
+  }
+
+  .message-content {
+    font-size: 0.8rem;
+
+    .sub-title {
+      font-weight: bold;
+    }
+  }
+}
+
+.main-content {
+  padding: 1rem 0 0 0;
+}
