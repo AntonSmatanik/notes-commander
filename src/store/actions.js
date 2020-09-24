@@ -16,8 +16,3 @@ export const addNotes = (val) => ({
 export const removeNotes = () => ({
   type: 'REMOVE_NOTES',
 });
-
-export const addNote = (val) => ({
-  type: 'ADD_NOTE',
-  note: val,
-});

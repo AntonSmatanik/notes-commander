@@ -3,7 +3,7 @@ import { Spinner } from 'react-bootstrap';
 
 const Loading = (() => {
     return (
-        <div className="text-center">
+        <div className="spinner" data-testid="spinner">
             <Spinner animation="border" />
         </div>
     );

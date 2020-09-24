@@ -11,5 +11,8 @@
     "delete": "smazat",
     "add": "přidat",
     "Back to all Notes": "Zpět na všechny poznámky",
-    "Submit": "Potvrdit"
+    "Submit": "Potvrdit",
+    "Show note": "Zobraz poznámku",
+    "Edit note": "Uprav poznámku",
+    "Add note": "Přidej poznámku"
 }

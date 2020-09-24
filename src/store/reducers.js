@@ -1,9 +1,11 @@
 export const messagesReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_MESSAGE':
-      return [...state, action.message];
+      state = [...state, action.message];
+      return state;
     case 'REMOVE_MESSAGE':
-      return state.filter(m => m.timestamp !== action.message.timestamp);
+      state = state.filter(m => m.timestamp !== action.message.timestamp);
+      return state;
     default:
       return state;
   }
@@ -16,16 +18,6 @@ export const notesReducer = (state = [], action) => {
       return state;
     case 'REMOVE_NOTES':
       state = [];
-      return state;
-    default:
-      return state;
-  }
-};
-
-export const noteReducer = (state = {}, action) => {
-  switch (action.type) {
-    case 'ADD_NOTE':
-      state = action.note;
       return state;
     default:
       return state;

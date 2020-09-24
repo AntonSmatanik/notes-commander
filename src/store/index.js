@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import { messagesReducer, notesReducer, noteReducer } from './reducers';
+import { messagesReducer, notesReducer } from './reducers';
 
 const allReducers = combineReducers({
   messagesReducer,
   notesReducer,
-  noteReducer,
 });
 
 export default allReducers;

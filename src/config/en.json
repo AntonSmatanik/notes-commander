@@ -11,5 +11,8 @@
     "delete": "delete",
     "add": "add",
     "Back to all Notes": "Back to all Notes",
-    "Submit": "Submit"
+    "Submit": "Submit",
+    "Show note": "Show note",
+    "Edit note": "Edit note",
+    "Add note": "Add note"
 }

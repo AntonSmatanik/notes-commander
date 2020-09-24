@@ -9,7 +9,7 @@ function DataTable(props) {
     const data = props.data;
 
     return (
-        <Table striped bordered hover responsive>
+        <Table data-testid="table" striped bordered hover responsive>
             <thead>
                 <tr>
                     <th>{t('ID')}</th>

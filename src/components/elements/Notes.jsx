@@ -22,7 +22,7 @@ function Notes() {
             </Row>
             <Row className="justify-content-md-center">
                 <Col lg="8" className="text-right">
-                    <IconButton type="add" />
+                    {data.length !== 0 && <IconButton type="add" />}
                 </Col>
             </Row>
         </>

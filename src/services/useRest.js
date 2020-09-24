@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
 import config from '../config/index.json'
-import { addMessage, addNotes, removeNotes, addNote } from '../store/actions';
+import { addMessage, addNotes, removeNotes } from '../store/actions';
 
 const useRest = () => {
     const dispatch = useDispatch();
@@ -49,9 +49,11 @@ const useRest = () => {
         try {
             const response = await axios.get(`${config.baseUrl}/${endpoint}`);
             message = successMessage(message, response);
-            dispatch(addNote(response.data));
+            // dispatch(addNote(response.data));
+            return response;
         } catch (error) {
             message = errorMessage(message, error);
+            return error;
         } finally {
             dispatch(addMessage(message));
         }

@@ -4,20 +4,34 @@ body {
 }
 
 .messages {
-  border: black 0.15rem solid;
+  border: black 0.15rem dashed;
   margin: $smallMargin 0;
-  padding: $smallPadding $smallPadding 0 $smallPadding;;
+  padding: $smallPadding $smallPadding 0 $smallPadding;
   border-radius: $borderRadius;
+  overflow-y: scroll;
+  max-height: 80vh;
 
-  .alert-heading {
-    font-size: 1rem;
-  }
+  .alert {
+    padding: $smallPadding;
 
-  .message-content {
-    font-size: 0.8rem;
+    &:hover {
+      box-shadow: 0.25rem 1rem 0.5rem -1rem hsla(0, 0%, 0%, 0.3);
+    }
 
-    .sub-title {
-      font-weight: bold;
+    .close {
+      padding: $smallPadding $smallPadding 0 0;
+    }
+
+    .alert-heading {
+      font-size: 1rem;
+    }
+
+    .alert-content {
+      font-size: 0.8rem;
+
+      .sub-title {
+        font-weight: bold;
+      }
     }
   }
 }
@@ -25,7 +39,24 @@ body {
 .main-content {
   margin: $smallMargin 0 0 0;
 
+  .spinner {
+    text-align: center;
+  }
+
+  .note-form {
+    border: black 0.15rem dashed;
+    transition: all 0.5s ease;
+    margin: $smallMargin 0;
+    padding: $smallPadding $smallPadding 0 $smallPadding;
+    box-shadow: 2rem 3rem 3rem -2.5rem hsla(0, 0%, 0%, 0.2);
+    border-radius: $borderRadius;
+
+    &:hover {
+      box-shadow: 0.25rem 1rem 0.5rem -1rem hsla(0, 0%, 0%, 0.3);
+    }
+  }
+
   .action-buttons {
-    margin: 0 $smallMargin;
+    margin-right: $smallMargin;
   }
 }
