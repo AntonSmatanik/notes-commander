@@ -3,13 +3,16 @@ body {
   background-color: $backgroundColor;
 }
 
+.messages-header {
+  margin: $smallMargin 0;
+}
+
 .messages {
   border: black 0.15rem dashed;
-  margin: $smallMargin 0;
   padding: $smallPadding $smallPadding 0 $smallPadding;
   border-radius: $borderRadius;
   overflow-y: scroll;
-  max-height: 80vh;
+  max-height: 90vh;
 
   .alert {
     padding: $smallPadding;
@@ -58,5 +61,6 @@ body {
 
   .action-buttons {
     margin-right: $smallMargin;
+    padding: 0.25rem $smallPadding;
   }
 }

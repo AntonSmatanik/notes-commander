@@ -64,7 +64,7 @@ function Note() {
 
     return (
         <Row className="justify-content-md-center">
-            <Col lg="6">
+            <Col lg="7">
                 <h3>{t(`${formTitle} note`)}:</h3>
                 <Form onSubmit={handleSubmit} className="note-form">
                     <Form.Row className="justify-content-md-center">

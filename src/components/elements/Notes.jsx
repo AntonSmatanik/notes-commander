@@ -14,14 +14,14 @@ function Notes() {
     return (
         <>
             <Row className="justify-content-md-center">
-                <Col lg="8">
-                    <h3>{t('All notes')}:</h3>
+                <Col lg="7">
+                    <h4>{t('All notes')}:</h4>
                     {data.length === 0 && <Loading />}
                     {data.length !== 0 && <DataTable data={data} />}
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
-                <Col lg="8" className="text-right">
+                <Col lg="7" className="text-right">
                     {data.length !== 0 && <IconButton type="add" />}
                 </Col>
             </Row>

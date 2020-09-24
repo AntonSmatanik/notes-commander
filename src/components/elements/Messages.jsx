@@ -9,10 +9,14 @@ const Messages = (() => {
     const messages = useSelector((state) => state.messagesReducer);
 
     return (
-        <div className="messages">
-            <h3>{t('HTTP requests')}:</h3>
-            {messages.map(message => (<Message key={`${message.timestamp}${message.method}`} message={message} />))}
-        </div>
+        <>
+            <h4 className="messages-header">{t('HTTP requests')}:</h4>
+            {messages.length !== 0 && (
+                <div className="messages">
+                    {messages.map(message => (<Message key={`${message.timestamp}${message.method}`} message={message} />))}
+                </div>
+            )}
+        </>
     );
 });
 
