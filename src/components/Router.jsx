@@ -15,32 +15,34 @@ const Router = (() => {
 
     useEffect(() => {
         rest.getAllNotes('notes');
-    }, []);
+    }, [rest]);
 
     return (
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/notes">
-                    <Notes />
-                </Route>
-                <Route path="/notes/add">
-                    <Note />
-                </Route>
-                <Route path="/notes/show/:id">
-                    <Note />
-                </Route>
-                <Route path="/notes/edit/:id">
-                    <Note />
-                </Route>
-                <Route
-                    exact
-                    path="/"
-                    render={() => (
-                        <Redirect to="/notes" />
-                    )}
-                />
-            </Switch>
-        </BrowserRouter>
+        <div className="main-content">
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/notes">
+                        <Notes />
+                    </Route>
+                    <Route path="/notes/add">
+                        <Note />
+                    </Route>
+                    <Route path="/notes/show/:id">
+                        <Note />
+                    </Route>
+                    <Route path="/notes/edit/:id">
+                        <Note />
+                    </Route>
+                    <Route
+                        exact
+                        path="/"
+                        render={() => (
+                            <Redirect to="/notes" />
+                        )}
+                    />
+                </Switch>
+            </BrowserRouter>
+        </div>
     );
 });
 

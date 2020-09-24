@@ -10,7 +10,7 @@ import useRest from '../../services/useRest';
 const IconButton = ((props) => {
     const { t } = useTranslation();
     const history = useHistory();
-    const rest = useRest({ endpoint: `notes/${props.id}` });
+    const rest = useRest();
 
     let variant;
     let icon;

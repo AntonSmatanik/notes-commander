@@ -22,7 +22,7 @@ export const notesReducer = (state = [], action) => {
   }
 };
 
-export const noteReducer = (state = [], action) => {
+export const noteReducer = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_NOTE':
       state = action.note;

@@ -9,10 +9,10 @@ const App = (() => {
     return (
         <Container fluid>
             <Row>
-                <Col lg="2" className="messages">
+                <Col lg="2">
                     <Messages />
                 </Col>
-                <Col lg="9" className="main-content">
+                <Col lg="9">
                     <Router />
                 </Col>
                 <Col lg="1" className="justify-content-md-right">

@@ -7,18 +7,17 @@ import { useSelector } from 'react-redux';
 import useRest from '../../services/useRest';
 
 function Note() {
+    const [title, setTitle] = useState();
     const { id } = useParams();
     const location = useLocation();
     const history = useHistory();
-    const { t } = useTranslation();
-
+    const { t } = useTranslation();    
+    const rest = useRest();
+    let data = useSelector((state) => state.noteReducer);
+    
     const readMode = location.pathname.includes('show');
     const addMode = location.pathname.includes('add');
     const editMode = location.pathname.includes('edit');
-    
-    const rest = useRest();
-    let data = useSelector((state) => state.noteReducer);
-    const [title, setTitle] = useState();
     
     if (addMode) {
         data = null;
@@ -52,7 +51,7 @@ function Note() {
         if (!addMode) {
             rest.getNote(`notes/${id}`);
         }        
-    }, []);
+    }, [addMode, id]);
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -86,7 +85,7 @@ function Note() {
                     <Button
                         variant="primary"
                         type="submit"
-                        disabled={readMode}
+                        disabled={readMode || (!title && !data)}
                     >
                         {t('Submit')}
                 </Button>

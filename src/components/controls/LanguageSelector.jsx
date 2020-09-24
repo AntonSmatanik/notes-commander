@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHamburger, faBeer } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 
-const LanguageSelector = ((props) => {
+const LanguageSelector = (() => {
     const { t, i18n } = useTranslation();
     const icon = i18n.language === 'en' ? faHamburger : faBeer;
     const language = i18n.language === 'en' ? 'English' : 'Czech';

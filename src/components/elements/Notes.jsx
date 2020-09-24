@@ -17,7 +17,7 @@ function Notes() {
                 <Col lg="8">
                     <h3>{t('All notes')}:</h3>
                     {data.length === 0 && <Loading />}
-                    {data && <DataTable data={data} />}
+                    {data.length !== 0 && <DataTable data={data} />}
                 </Col>
             </Row>
             <Row className="justify-content-md-center">

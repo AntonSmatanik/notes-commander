@@ -7,93 +7,67 @@ import { addMessage, addNotes, removeNotes, addNote } from '../store/actions';
 const useRest = () => {
     const dispatch = useDispatch();
 
-    let message = {
+    const errorMessage = (message, error) => ({
+        ...message,
+        type: 'danger',
+        status: error.status,
+        body: error.message,
         timestamp: Date.now(),
-    };
+    });
+
+    const successMessage = (message, response) => ({
+        ...message,
+        type: 'success',
+        status: response.status,
+        body: response.statusText,
+        timestamp: Date.now(),
+    });
 
     const getAllNotes = async (endpoint) => {
-        message = {
-            ...message,
+        let message = {
             endpoint,
             method: 'GET',
         };
 
         try {
             const response = await axios.get(`${config.baseUrl}/${endpoint}`);
-
-            message = {
-                ...message,
-                type: 'success',
-                status: response.status,
-                body: response.statusText,
-            };
-
+            message = successMessage(message, response);
             dispatch(addNotes(response.data));
         } catch (error) {
-            message = {
-                ...message,
-                type: 'danger',
-                status: error.status,
-                body: error.message,
-            };
+            message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
         }
     };
 
     const getNote = async (endpoint) => {
-        message = {
-            ...message,
+        let message = {
             endpoint,
             method: 'GET',
         };
 
         try {
             const response = await axios.get(`${config.baseUrl}/${endpoint}`);
-
-            message = {
-                ...message,
-                type: 'success',
-                status: response.status,
-                body: response.statusText,
-            };
-
+            message = successMessage(message, response);
             dispatch(addNote(response.data));
         } catch (error) {
-            message = {
-                ...message,
-                type: 'danger',
-                status: error.status,
-                body: error.message,
-            };
+            message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
         }
     };
 
     const putNote = async (endpoint, body) => {
-        message = {
-            ...message,
+        let message = {
             endpoint,
             method: 'PUT',
         };
-        
+
         try {
             const response = await axios.put(`${config.baseUrl}/${endpoint}`, body);
-
-            message = {
-                ...message,
-                type: 'success',
-                status: response.status,
-                body: response.statusText,
-            };
+            message = successMessage(message, response);
         } catch (error) {
-            message = {
-                ...message,
-                type: 'danger',
-                status: error.status,
-                body: error.message,
-            };
+            message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
             getAllNotes('notes');
@@ -101,28 +75,16 @@ const useRest = () => {
     };
 
     const postNote = async (endpoint, body) => {
-        message = {
-            ...message,
+        let message = {
             endpoint,
             method: 'POST',
         };
-        
+
         try {
             const response = await axios.post(`${config.baseUrl}/${endpoint}`, body);
-
-            message = {
-                ...message,
-                type: 'success',
-                status: response.status,
-                body: response.statusText,
-            };
+            message = successMessage(message, response);
         } catch (error) {
-            message = {
-                ...message,
-                type: 'danger',
-                status: error.status,
-                body: error.message,
-            };
+            message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
             getAllNotes('notes');
@@ -132,28 +94,16 @@ const useRest = () => {
     const deleteNote = async (endpoint) => {
         dispatch(removeNotes());
 
-        message = {
-            ...message,
+        let message = {
             endpoint,
             method: 'DELETE',
         };
 
         try {
             const response = await axios.delete(`${config.baseUrl}/${endpoint}`);
-
-            message = {
-                ...message,
-                type: 'success',
-                status: response.status,
-                body: response.statusText,
-            };
+            message = successMessage(message, response);
         } catch (error) {
-            message = {
-                ...message,
-                type: 'danger',
-                status: error.status,
-                body: error.message,
-            };
+            message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
             getAllNotes('notes');
@@ -164,8 +114,8 @@ const useRest = () => {
         getAllNotes,
         getNote,
         putNote,
-        deleteNote,
-        postNote
+        postNote,
+        deleteNote,        
     };
 };
 
