@@ -2,13 +2,17 @@
 
 Application is build with help of [create-react-app](https://github.com/facebook/create-react-app) and it is not ejected.
 
-## How to run application
+## How to install application
 
-Just type ```npm run start``` to console
+Just use command ```npm i```
+
+## How to start application
+
+Just use command ```npm run start```
 
 ## How to run tests
 
-Just type ```npm run test``` to console
+Just use command ```npm run test```
 
 ## How is application functioning
 
