@@ -49,7 +49,6 @@ const useRest = () => {
         try {
             const response = await axios.get(`${config.baseUrl}/${endpoint}`);
             message = successMessage(message, response);
-            // dispatch(addNote(response.data));
             return response;
         } catch (error) {
             message = errorMessage(message, error);
