@@ -8,7 +8,7 @@ import LanguageSelector from './controls/LanguageSelector';
 const App = (() => {
     return (
         <Container fluid>
-            <Row>
+            <Row className="container-row">
                 <Col lg="2">
                     <Messages />
                 </Col>
