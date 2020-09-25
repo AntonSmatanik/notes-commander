@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import './scss/_index.scss';
 import App from './components/App';
 import allReducers from './store/';
-import './i18n';
+import './config/i18n';
 
 const store = createStore(allReducers);
 
