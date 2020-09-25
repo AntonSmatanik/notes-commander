@@ -9,11 +9,11 @@ function Message(props) {
     const dispatch = useDispatch();
     
     const message = props.message;
-    const dateTestId = `message-${message.timestamp}-${message.method}`;
+    const dataTestId = `message-${message.timestamp}-${message.method}`;
     const dateTime = moment(message.timestamp).format("HH:mm:ss");
 
     return (
-        <Alert data-testid={dateTestId} variant={message.type} onClose={() => dispatch(removeMessage(message))} dismissible>
+        <Alert data-testid={dataTestId} variant={message.type} onClose={() => dispatch(removeMessage(message))} dismissible>
             <Alert.Heading>{dateTime} &rarr; {message.body}</Alert.Heading>
             <div className="alert-content">
                 <div>
