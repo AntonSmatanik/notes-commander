@@ -9,7 +9,7 @@ function Message(props) {
     const dispatch = useDispatch();
     
     const message = props.message;
-    const dateTestId = `message-${message.timestamp}`;
+    const dateTestId = `message-${message.timestamp}-${message.method}`;
     const dateTime = moment(message.timestamp).format("HH:mm:ss");
 
     return (

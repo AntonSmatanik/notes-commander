@@ -38,7 +38,7 @@ test('should have header texts', () => {
   expect(notesHeader).toBeInTheDocument();
 });
 
-test('should have spinner but not a table with notes', () => {
+test('should have spinner', () => {
   renderWrappedApp(initialReduxState);
 
   const spinner = screen.getByTestId('spinner');
@@ -46,7 +46,7 @@ test('should have spinner but not a table with notes', () => {
   expect(spinner).toBeInTheDocument();
 });
 
-test('should have table with notes but not a spinner', () => {
+test('should have table with notes', () => {
   const reduxStateWithNotes = {
     messagesReducer: [],
     notesReducer: [{
@@ -100,6 +100,6 @@ test('should have 3 messages', () => {
   renderWrappedApp(reduxStateWithMessages);
 
   reduxStateWithMessages.messagesReducer.every(e =>
-    expect(screen.getByTestId(`message-${e.timestamp}`)).toBeInTheDocument()
+    expect(screen.getByTestId(`message-${e.timestamp}-${e.method}`)).toBeInTheDocument()
   );
 });
