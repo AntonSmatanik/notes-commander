@@ -8,17 +8,17 @@ body {
 }
 
 .messages {
-  border: black 0.15rem dashed;
+  border: #d6e9c6 0.25rem double;
   padding: $smallPadding $smallPadding 0 $smallPadding;
-  border-radius: $borderRadius;
-  overflow-y: scroll;
-  max-height: 90vh;
+  overflow-y: auto;
+  height: 90vh;
 
   .alert {
     padding: $smallPadding;
+    margin-bottom: $smallMargin;
 
     &:hover {
-      box-shadow: 0.25rem 1rem 0.5rem -1rem hsla(0, 0%, 0%, 0.3);
+      box-shadow: $boxShadowHover;
     }
 
     .close {
@@ -50,12 +50,12 @@ body {
     border: black 0.15rem dashed;
     transition: all 0.5s ease;
     margin: $smallMargin 0;
-    padding: $smallPadding $smallPadding 0 $smallPadding;
+    padding: $mediumPadding $mediumPadding 0 $mediumPadding;
     box-shadow: 2rem 3rem 3rem -2.5rem hsla(0, 0%, 0%, 0.2);
     border-radius: $borderRadius;
 
     &:hover {
-      box-shadow: 0.25rem 1rem 0.5rem -1rem hsla(0, 0%, 0%, 0.3);
+      box-shadow: $boxShadowHover;
     }
   }
 

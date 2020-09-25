@@ -11,11 +11,9 @@ const Messages = (() => {
     return (
         <>
             <h4 className="messages-header">{t('HTTP requests')}:</h4>
-            {messages.length !== 0 && (
-                <div className="messages">
-                    {messages.map(message => (<Message key={`${message.timestamp}${message.method}`} message={message} />))}
-                </div>
-            )}
+            <div className="messages">
+                {messages.map(message => (<Message key={`${message.timestamp}${message.method}`} message={message} />))}
+            </div>
         </>
     );
 });
