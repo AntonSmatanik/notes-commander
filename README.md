@@ -16,7 +16,7 @@ Just use command ```npm run test```
 
 ## How is application functioning
 
-HTTP requests done by application are stored and displayed in a form of messages.
+Information about HTTP requests are stored and displayed in a form of alert messages. Green (2xx codes) and red (various type of errors).
 
 I decided to display messages on a left side, notes and form used for manipulation with note are located in the center of the screen and language selector on a right side.
 
