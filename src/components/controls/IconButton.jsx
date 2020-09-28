@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import ConfirmDialog from './ConfirmDialog';
 import useRest from '../../services/useRest';
 
 const IconButton = ((props) => {
     const { t } = useTranslation();
     const history = useHistory();
     const rest = useRest();
+
+    const [showModal, setShowModal] = useState(false);
 
     let variant;
     let icon;
@@ -29,9 +32,16 @@ const IconButton = ((props) => {
         icon = faPlus;
     }
 
+    const handleModalCancelAction = () => setShowModal(false);
+
+    const handleModalConfirmAction = () => {
+        setShowModal(false);
+        rest.deleteNote(`notes/${props.id}`);
+    }
+
     const onClick = (e) => {
         if (props.type === "delete") {
-            rest.deleteNote(`notes/${props.id}`);
+            setShowModal(true);
         }
 
         if (props.type === "show" || props.type === "edit") {
@@ -44,9 +54,20 @@ const IconButton = ((props) => {
     }
 
     return (
-        <Button onClick={onClick} className="action-buttons" variant={variant}>
-            <FontAwesomeIcon icon={icon} /> {t(props.type)}
-        </Button>
+        <>
+            <ConfirmDialog
+                show={showModal}
+                handleCancelAction={handleModalCancelAction}
+                handleConfirmAction={handleModalConfirmAction}
+                titleText={t('Delete note')}
+                bodyText={t('Are you sure you want do delete this')}
+                cancelActionText={t('Cancel')}
+                confirmActionText={t('Confirm Delete')}
+            />
+            <Button onClick={onClick} className="action-buttons" variant={variant}>
+                <FontAwesomeIcon icon={icon} /> {t(props.type)}
+            </Button>
+        </>
     );
 });
 

@@ -14,5 +14,9 @@
     "Submit": "Potvrdit",
     "Show note": "Zobraz poznámku",
     "Edit note": "Uprav poznámku",
-    "Add note": "Přidej poznámku"
+    "Add note": "Přidej poznámku",
+    "Cancel": "Stornovat",
+    "Confirm Delete": "Potvrdit smazání",
+    "Delete note": "Odstranit poznámku",
+    "Are you sure you want do delete this": "Opravdu to chcete smazat?"
 }

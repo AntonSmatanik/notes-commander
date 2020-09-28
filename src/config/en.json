@@ -14,5 +14,9 @@
     "Submit": "Submit",
     "Show note": "Show note",
     "Edit note": "Edit note",
-    "Add note": "Add note"
+    "Add note": "Add note",
+    "Cancel": "Cancel",
+    "Confirm Delete": "Confirm Delete",
+    "Delete note": "Delete note",
+    "Are you sure you want do delete this": "Are you sure you want do delete this?"
 }
