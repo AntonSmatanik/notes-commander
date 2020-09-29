@@ -67,11 +67,12 @@ const useRest = () => {
         try {
             const response = await axios.put(`${config.baseUrl}/${endpoint}`, body);
             message = successMessage(message, response);
+            dispatch(removeNotes());
+            getAllNotes('notes');
         } catch (error) {
             message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
-            getAllNotes('notes');
         }
     };
 
@@ -84,16 +85,17 @@ const useRest = () => {
         try {
             const response = await axios.post(`${config.baseUrl}/${endpoint}`, body);
             message = successMessage(message, response);
+            dispatch(removeNotes());
+            getAllNotes('notes');
         } catch (error) {
             message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
-            getAllNotes('notes');
         }
     };
 
     const deleteNote = async (endpoint) => {
-        dispatch(removeNotes());
+        
 
         let message = {
             endpoint,
@@ -103,11 +105,12 @@ const useRest = () => {
         try {
             const response = await axios.delete(`${config.baseUrl}/${endpoint}`);
             message = successMessage(message, response);
+            dispatch(removeNotes());
+            getAllNotes('notes');
         } catch (error) {
             message = errorMessage(message, error);
         } finally {
             dispatch(addMessage(message));
-            getAllNotes('notes');
         }
     };
 

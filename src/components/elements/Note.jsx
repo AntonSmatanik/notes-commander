@@ -28,9 +28,7 @@ function Note() {
         setData(newData);
     }
 
-    const handleClick = (e) => {
-        history.push(`/notes`);
-    }
+    const handleClick = () => history.push(`/notes`);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -46,6 +44,8 @@ function Note() {
         if (editMode) {
             rest.putNote(`notes/${id}`, body);
         }
+
+        history.push(`/notes`);
     }
 
     useEffect(() => {
