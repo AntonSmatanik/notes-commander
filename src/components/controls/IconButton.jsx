@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import ConfirmDialog from './ConfirmDialog';
+import ConfirmDialog from '../misc/ConfirmDialog';
 import useRest from '../../services/useRest';
 
 const IconButton = ((props) => {
